@@ -1,1 +1,2 @@
 # InstaQuickBot
+Yakında düzenlenecek.
