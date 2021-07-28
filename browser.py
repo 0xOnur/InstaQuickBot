@@ -133,29 +133,38 @@ class Instagram:
             print("Takip listesi oluşturuldu.")
 
     def comment(self,user):
-        self.browser.refresh()
-        self.browser.refresh()
-        time.sleep(3)
-        textarea = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea')
-        textarea.click()
-        time.sleep(3)
-        self.browser.find_element_by_xpath("//textarea[@placeholder='Add a comment…']").send_keys('@' + user)
+        self.browser.find_element_by_xpath("//textarea[@placeholder='Add a comment…']").send_keys('@' + user + ' ')
         print(user)
         time.sleep(2)
-        paylas_buton = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]')
-        paylas_buton.click()
-        time.sleep(10)
-        self.browser.refresh()
-        time.sleep(20)
+        time.sleep(5)
 
-    def commentsJustOne(self):
+    def giftBot(self):
         post_link = input("Çekiliş post linki: ")
         self.browser.get(post_link)
         user_list = input("Etiketleyeceğiniz hesapların listesi (**csv dosyası olmalı!** | Uzantısız yazın!): ")
+        sayac = 0
+        etiket_adet = int(input("Kaç kişi etiketlemek istiyorsunuz: "))
+        time.sleep(3)
+        textarea = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea')
+        textarea.click()
         with open(f"files/{user_list}.csv","r") as file:
             csv_reader = csv.reader(file)
             for user in csv_reader:
-                self.comment(user[0])
+                sayac +=1
+                if sayac <= etiket_adet:
+                    self.comment(user[0])
+                else:
+                    sayac = 0
+                    paylas_buton = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]')
+                    # paylas_buton.click()
+                    print("etiketlendi.")
+                    self.browser.refresh()
+                    time.sleep(5)
+                    self.browser.refresh()
+                    time.sleep(5)
+                    textarea = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea')
+                    textarea.click()
+                    time.sleep(2)
 
 
     def exit(self):
