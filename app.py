@@ -8,7 +8,7 @@ while True:
             3--> Kullanıcı listesini takip et.
             4--> Kullanıcı listesini takipten çık.
             5--> Takip ettiklerinizi takipten çıkın.
-            6--> Tek etiketli çekiliş botu.
+            6--> Çekiliş etiketleme botu.
             7--> Çıkış
 
     """)
@@ -24,7 +24,7 @@ while True:
     elif soru == 5:
         browser.app.unFollowFollowing()
     elif soru == 6:
-        browser.app.commentsJustOne()
+        browser.app.giftBot()
     elif soru == 7:
         browser.app.exit()
         break
