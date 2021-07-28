@@ -52,6 +52,7 @@ class Instagram:
         Instagram.scrollDown(self, max)
         time.sleep(1)
         sayac = 0
+        time.sleep(5)
         followers = self.browser.find_element_by_class_name("PZuss").find_elements_by_tag_name("li")
         time.sleep(1)
         for follower in followers:
@@ -156,7 +157,8 @@ class Instagram:
                 else:
                     sayac = 0
                     paylas_buton = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]')
-                    # paylas_buton.click()
+                    paylas_buton.click()
+                    time.sleep(5)
                     print("etiketlendi.")
                     self.browser.refresh()
                     time.sleep(5)
@@ -164,7 +166,7 @@ class Instagram:
                     time.sleep(5)
                     textarea = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea')
                     textarea.click()
-                    time.sleep(2)
+                    time.sleep(25)
 
 
     def exit(self):
