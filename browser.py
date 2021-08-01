@@ -159,7 +159,7 @@ class Instagram:
                     time.sleep(3)
                     self.comment(user[0])
                     paylas_buton = self.browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/button[2]')
-                    # paylas_buton.click()
+                    paylas_buton.click()
                     time.sleep(5)
                     print("etiketlendi.")
                     self.browser.refresh()
