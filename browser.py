@@ -7,7 +7,7 @@ import csv
 
 class Instagram:
     
-    driver_path = webdriver.Chrome("C:/webdrivers/chromedriver")
+    driver_path = webdriver.Chrome()
     options = webdriver.ChromeOptions()
     options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
     
@@ -23,7 +23,6 @@ class Instagram:
         """
         self.browser.execute_script(jsKomut)
         while True:
-            # son = sayfaSonu
             time.sleep(1)
             followers = len(self.browser.find_elements_by_class_name("wo9IH"))
             self.browser.execute_script(jsKomut)
